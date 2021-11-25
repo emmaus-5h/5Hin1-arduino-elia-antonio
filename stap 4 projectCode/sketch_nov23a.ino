@@ -33,6 +33,7 @@ int knop8 = 0;
 const int BORING = 1; // alle stoplichten ROOD
 const int EXCITING = 2; // alle stoplichten ORANJE
 const int KAMIKAZE = 3; // alle stoplicht GROEN
+const int EA = 4; // alle stoplichten ROOD
 int toestand = BORING;
 unsigned long toestandStartTijd = 0;
 
@@ -166,28 +167,29 @@ void loop() {
     }
   }
     if (knop7 == HIGH || knop8 == HIGH) {
-      toestand = EXCITING;
+      toestand = EA;
       if (millis() - toestandStartTijd > 1000) {
       toestandStartTijd = millis();
+      toestand = KAMIKAZE;
       Serial.println("Nieuwe toestand: EXCITING");
     }
   }
   if (toestand == KAMIKAZE) {
     if (millis() - toestandStartTijd > 10000) {
       toestandStartTijd = millis();
-      toestand = BORING;
+      toestand = EXCITING;
       Serial.println("Nieuwe toestand: BORING");
     }
   }
-    if (knop7 == HIGH || knop8 == HIGH) {
-      if (millis() - toestandStartTijd > 1000) {
-    }
+  
+  if (toestand == ) {
+    if (knop7 == LOW && knop8 == LOW) { // beide knoppen niet ingedrukt
       toestandStartTijd = millis();
       toestand = BORING;
-      Serial.println("Nieuwe toestand:BORING");
+      Serial.println("Nieuwe toestand: KAMIKAZE");
     }
-  
-  if (toestand == EXCITING) {
+  }
+ if (toestand == EXCITING) {
     if (knop7 == LOW && knop8 == LOW) { // beide knoppen niet ingedrukt
       toestandStartTijd = millis();
       toestand = KAMIKAZE;
@@ -199,9 +201,9 @@ void loop() {
   if (toestand == BORING) {
   
       stoplicht(1, ROOD);
-      stoplicht(2, ROOD);
+      stoplicht(2, GROEN);
       stoplicht(3, GROEN);
-      stoplicht(4, ORANJE);
+      stoplicht(4, ROOD);
       stoplicht(5, ROOD);
       stoplicht(6, ROOD);
       stoplicht(7, ROOD);
@@ -209,15 +211,44 @@ void loop() {
    
   }
   if (toestand == KAMIKAZE) {
-    for (int i = 1; i <= 8; i = i + 1) {
-      stoplicht(i, GROEN);
-    }
+    
+
+      stoplicht(1, ROOD);
+      stoplicht(2, ORANJE);
+      stoplicht(3, ORANJE);
+      stoplicht(4, ROOD);
+      stoplicht(5, ROOD);
+      stoplicht(6, ROOD);
+      stoplicht(7, ROOD);
+      stoplicht(8, ROOD);
+    
   }
   if (toestand == EXCITING) {
-    for (int i = 1; i <= 6; i = i + 1) {
-      stoplicht(i, ORANJE);
-    }
+    
+      
+      stoplicht(1, GROEN);
+      stoplicht(2, ROOD);
+      stoplicht(3, ROOD);
+      stoplicht(4, ROOD);
+      stoplicht(5, ROOD);
+      stoplicht(6, GROEN);
+      stoplicht(7, ROOD);
+      stoplicht(8, ROOD);
+    
+  }
+  if (toestand == EA) {
+    
+      
+      stoplicht(1, ROOD);
+      stoplicht(2, ROOD);
+      stoplicht(3, ROOD);
+      stoplicht(4, GROEN);
+      stoplicht(5, GROEN);
+      stoplicht(6, ROOD);
+      stoplicht(7, GROEN);
+      stoplicht(8, GROEN);
+    
   }
 
   // vertraging om te zorgen dat berichten op de seriele monitor leesbaar blijven
-  delay(100);
+ delay(100); }
