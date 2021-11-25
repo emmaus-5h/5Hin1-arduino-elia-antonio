@@ -197,9 +197,16 @@ void loop() {
 
   // zet stoplichten conform toestand
   if (toestand == BORING) {
-    for (int i = 1; i <= 8; i = i + 1) {
-      stoplicht(i, ROOD);
-    }
+  
+      stoplicht(1, ROOD);
+      stoplicht(2, ROOD);
+      stoplicht(3, GROEN);
+      stoplicht(4, ORANJE);
+      stoplicht(5, ROOD);
+      stoplicht(6, ROOD);
+      stoplicht(7, ROOD);
+      stoplicht(8, ROOD);
+   
   }
   if (toestand == KAMIKAZE) {
     for (int i = 1; i <= 8; i = i + 1) {
