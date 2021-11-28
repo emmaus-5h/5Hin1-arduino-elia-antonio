@@ -166,6 +166,7 @@ void loop() {
       Serial.println("Nieuwe toestand: KAMIKAZE");
     }
   }
+/* deze code heb je nu niet nodig
     if (knop7 == HIGH || knop8 == HIGH) {
       toestand = EA;
       if (millis() - toestandStartTijd > 1000) {
@@ -173,6 +174,7 @@ void loop() {
       toestand = KAMIKAZE;
       Serial.println("Nieuwe toestand: EXCITING");
     }
+    */
   }
   if (toestand == KAMIKAZE) {
     if (millis() - toestandStartTijd > 10000) {
@@ -182,12 +184,14 @@ void loop() {
     }
   }
   
-  if (toestand == ) {
+  if (toestand == EA) {
+/* hier moet andere code komen, zodat er na een bepaalde tijd naar een nieuwe toestand wordt gegaan
     if (knop7 == LOW && knop8 == LOW) { // beide knoppen niet ingedrukt
       toestandStartTijd = millis();
       toestand = BORING;
       Serial.println("Nieuwe toestand: KAMIKAZE");
     }
+    */
   }
  if (toestand == EXCITING) {
     if (knop7 == LOW && knop8 == LOW) { // beide knoppen niet ingedrukt
