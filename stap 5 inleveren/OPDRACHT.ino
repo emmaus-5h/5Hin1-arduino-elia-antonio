@@ -149,28 +149,28 @@ void loop() {
   knop8 = digitalRead(pin8Knop); 
   // bepaal toestand
   if (toestand == GROEP_A) {
-    if (millis() - toestandStartTijd > 1000) {
+    if (millis() - toestandStartTijd > 3000) {
       toestandStartTijd = millis();
       toestand = GROEP_B;
       Serial.println("Nieuwe toestand: GROEP_B");
     }
   }
   if (toestand == GROEP_B) {
-    if (millis() - toestandStartTijd > 2000) {
+    if (millis() - toestandStartTijd > 1000) {
       toestandStartTijd = millis();
       toestand = GROEP_C;
       Serial.println("Nieuwe toestand: GROEP_C");
     }
   }
    if (toestand == GROEP_C) {
-    if (millis() - toestandStartTijd > 2000) {
+    if (millis() - toestandStartTijd > 3000) {
       toestandStartTijd = millis();
       toestand = GROEP_D;
       Serial.println("Nieuwe toestand: GROEP_D");
     }
   }
    if (toestand == GROEP_D) {
-    if (millis() - toestandStartTijd > 2000) {
+    if (millis() - toestandStartTijd > 1000) {
       toestandStartTijd = millis();
       toestand = GROEP_E;
       Serial.println("Nieuwe toestand: GROEP_E");
@@ -178,7 +178,7 @@ void loop() {
     }
    }
    if (toestand == GROEP_E) {
-    if (millis() - toestandStartTijd > 2000) {
+    if (millis() - toestandStartTijd > 3000) {
       toestandStartTijd = millis();
       toestand = GROEP_F;
       Serial.println("Nieuwe toestand: GROEP_F");
@@ -186,7 +186,7 @@ void loop() {
     }
    }
    if (toestand == GROEP_F) {
-    if (millis() - toestandStartTijd > 2000) {
+    if (millis() - toestandStartTijd > 1000) {
       toestandStartTijd = millis();
       toestand = GROEP_A;
       Serial.println("Nieuwe toestand: GROEP_A");
