@@ -33,7 +33,7 @@ const int GROEP_D = 4;
 const int GROEP_E = 5;
 const int GROEP_F = 6;
 const int GROEP_G = 7;
-int voetgangersWacht = 5;
+const int voetgangersWacht = 5; 
 int toestand = GROEP_A;
 unsigned long toestandStartTijd = 0;
 /*****************************************
@@ -148,17 +148,10 @@ void setup() {
   
 void loop() {
 
-  if (knop7 == HIGH || knop8 == HIGH){
+  if (knop7 == HIGH || knop8 == HIGH){ // toestand voor knop ingedrukt
    voetgangersWacht = true;
   toestand = GROEP_G;
   }
-  /*
-  if (knop7 == LOW || knop8 == LOW){
-   voetgangersWacht = true;
-      toestand = GROEP_A;
-  }
-  */
-
   
   // lees sensorwaarden
   knop7 = digitalRead(pin7Knop);
